@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product.model';
 
-const STORE_BASE_URL = 'https://fakestoreapi.com'
-
+const STORE_BASE_URL = 'https://fakestoreapi.com';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +12,6 @@ export class StoreService {
   constructor(private httpClient: HttpClient) { }
 
   getAllProducts(limit = '12', sort='desc'): Observable<Array<Product>> {
-    console.log(limit, sort)
     return this.httpClient.get<Array<Product>>(
       `${STORE_BASE_URL}/products?sort=${sort}&limit=${limit}`
     )
